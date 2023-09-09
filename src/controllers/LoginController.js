@@ -1,4 +1,13 @@
 const bcrypt = require('bcrypt');
+const mysql = require('mysql');
+const configuracion = mysql.createConnection({
+    host: "localhost",
+    user: "senaSoft",
+    password: "mujeres",
+    database: "mujeres",
+    port: "3307"
+})
+
 
 function login(req, res){
     res.render('login/index');
@@ -14,16 +23,22 @@ function register(req, res){
 }
 
 function storeUser(req, res){
-    const data = req.body;
-    bcrypt.hash(data.password, 12).then(hash => {
-        data.password = hash;
-        req.getConnection((err, conn)=>{
-            conn.query('INSERT INTO users SET', [data], (err, rows)=>{
-                res.redirect('/');
-            });
-        });
-    });
+    const { nombre, email, password } = req.body;
+    console.log(req.body)
+  
+    try {
+      const sql = 'INSERT INTO digitales (nombre, email, password) VALUES (?,?,?)';
+      configuracion.query(sql, [nombre, email, password]);
+      res.redirect('/')
+    } catch (error) {
+      res.status(500).send('Error al guardar los datos: ' + error.message);
+    }
+    
 }
+
+
+
+
 
 module.exports = {
     login,
