@@ -25,7 +25,7 @@ app.use(myconnection(mysql, {
     host: 'localhost',
     user: 'senaSoft',
     password: 'mujeres',
-    port: 3306,
+    port: 3307,
     database: 'mujeres'
 }));
 

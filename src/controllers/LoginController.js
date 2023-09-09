@@ -4,6 +4,11 @@ function login(req, res){
     res.render('login/index');
 }
 
+function auth(req, res){
+    const data = req.body;
+    console.log(data);
+}
+
 function register(req, res){
     res.render('login/register');
 }
@@ -24,4 +29,5 @@ module.exports = {
     login,
     register,
     storeUser,
+    auth,
 }
