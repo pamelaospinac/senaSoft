@@ -6,28 +6,29 @@ function login(req, res) {
 
 function auth(req, res) {  //funcion que nos va permitir iniciar sesion 
     const datos = req.body;
+    console.log(datos)
 
     req.getConnection((err, confi) => {
         confi.query('SELECT * FROM digitales WHERE email = ?', [req.body.email], (err, usuariodatos) => {
 
             if (usuariodatos.length > 0) {
                 //primero buscamos si el correo existe y si es igual a si, pasamos a verificar la contraseña, en caso que el correo no de aparece un error de usuario no existe 
-                
-                    
-                    usuariodatos.forEach(element => {
-                        datos.password === usuariodatos.password, (err, esIgual) => {
+
+
+                usuariodatos.forEach(element => {
+                    bcrypt.compare(datos.password, element.password, (err, esIgual) => {
                         console.log(element.password)
 
-                              if (!esIgual) {
-                        res.render('login/index', { error: 'Contraseña incorrecta' });
+                        if (!esIgual) {
+                            res.render('login/index', { error: 'Contraseña incorrecta' });
 
-                    }
-                    else {
-                        console.log('bienvenido')
-                    }                        
-                    };
-              
-                 });
+                        }
+                        else {
+                            console.log('bienvenido')
+                        }
+                    });
+
+                });
             } else {
 
                 res.render('login/index', { error: 'Este usuario no existe' });
@@ -46,7 +47,7 @@ function register(req, res) {
 }
 
 function storeUser(req, res) {
-    const { nombre, email, password } = req.body;
+    const data= req.body;
     console.log(req.body)
 
 
@@ -59,11 +60,15 @@ function storeUser(req, res) {
             }
             else {
 
+
                 try {
-                    const sql = 'INSERT INTO digitales (nombre, email, password) VALUES (?,?,?)';
+                    bcrypt.hash(data.password, 12).then(hash =>{
+                       data.password = hash;
                     req.getConnection((err, confi) => { //getConnection estamos buscando la conexion con la BD establecida en app.js  
-                        confi.query(sql, [nombre, email, password]);  // si no existe se lleva a cabo la respectiva funcion de registrar y guardar los datos
+                        confi.query('INSERT INTO digitales SET ?', [data]);  // si no existe se lleva a cabo la respectiva funcion de registrar y guardar los datos
                         res.redirect('/')
+                    })
+               
 
                     })
 
