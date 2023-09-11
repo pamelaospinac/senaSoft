@@ -1,7 +1,13 @@
 const bcrypt = require('bcrypt');
 
 function login(req, res) {
-    res.render('login/index');
+    if(req.session.loggedin != true){
+        res.render('login/index');
+
+    }
+    else{
+        res.redirect('/')
+    }
 }
 
 function auth(req, res) {  //funcion que nos va permitir iniciar sesion 
@@ -24,7 +30,10 @@ function auth(req, res) {  //funcion que nos va permitir iniciar sesion
 
                         }
                         else {
-                            console.log('bienvenido')
+                           req.session.loggedin = true;
+                           req.session.name = datos.nombre;
+
+                           res.redirect('/')
                         }
                     });
 
@@ -43,7 +52,13 @@ function auth(req, res) {  //funcion que nos va permitir iniciar sesion
 }
 
 function register(req, res) {
-    res.render('login/register');
+    if(req.session.loggedin != true){
+        res.render('login/register');
+
+    }
+    else{
+        res.redirect('/')
+    }
 }
 
 function storeUser(req, res) {
