@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 const loginRoutes = require('./routes/login');
 
 const app = express();
-app.set('port', 4000);
+app.set('port', 4001);
 
 app.set('views', __dirname + '/views');
 app.engine('hbs', engine({
@@ -23,10 +23,10 @@ app.use(bodyParser.json());
 
 app.use(myconnection(mysql, {
     host: "localhost",
-    user: "mujeresDigitales",
+    user: "senaSoft",
     password: "mujeres",
     database: "mujeres",
-    port: "3306"
+    port: "3307"
 }));
 
 app.use(session({
@@ -41,5 +41,10 @@ app.listen(app.get('port'),()=>{
 
 app.use('/', loginRoutes);
 
-app.get('/', (req, res)=>
-res.render('home'));
+app.get('/', (req, res) => {
+    if(req.session.loggedin == true){
+        res.render('home', { nombre:req.session.nombre });
+    } else {
+        res.redirect('/login');
+    }
+});

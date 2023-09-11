@@ -84,6 +84,15 @@ function inicioS(req, res) {
 }
 
 
+function logout(req, res){
+    if(req.session.loggedin == true){
+
+        req.session.destroy();
+    }
+        res.redirect('/login');
+    }
+
+
 
 
 module.exports = {
@@ -91,5 +100,6 @@ module.exports = {
     register,
     storeUser,
     auth,
-    inicioS
+    inicioS,
+    logout,
 }
