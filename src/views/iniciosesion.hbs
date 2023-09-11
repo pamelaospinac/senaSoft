@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Bienvenida</title>
+    <!-- Incluye los estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Jpfe5fh2K9S4GO+z1P+Pj/dPlyuH9TCdtk9vLbRcOjc9G2h" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Cabecera -->
+        <header class="text-center mt-5">
+            <h1>Bienvenido a nuestra página</h1>
+        </header>
+
+        <!-- Contenido condicional basado en el estado de inicio de sesión -->
+        <div class="row justify-content-center mt-5">
+            <!-- Si el usuario ha iniciado sesión -->
+            <div class="col-md-6">
+                <div class="alert alert-success">
+                    <h2>Bienvenido a nuestra página</h2>
+                    <p>Gracias por iniciar sesión. Puedes ver tu contenido aquí.</p>
+                </div>
+            </div>
+
+            <!-- Si el usuario no ha iniciado sesión -->
+            <div class="col-md-6">
+                <div class="alert alert-danger">
+                    <h2>Iniciar Sesión</h2>
+                    <p>Por favor, inicia sesión para acceder al contenido.</p>
+                    <button class="btn btn-primary" onclick="iniciarSesion()">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluye los scripts de Bootstrap (jQuery y Popper.js son requeridos) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Jpfe5fh2K9S4GO+z1P+Pj/dPlyuH9TCdtk9vLbRcOjc9G2h" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-fDYcW1vbQc9vLqEp4oUzyc4Dua5J5qgL4dR+OGu4fOgbj2faAra30Kmq8vI5Jw+q" crossorigin="anonymous"></script>
+</body>
+</html>

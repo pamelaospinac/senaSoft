@@ -22,19 +22,11 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use(myconnection(mysql, {
-<<<<<<< HEAD
-    host: 'localhost',
-    user: 'senaSoft',
-    password: 'mujeres',
-    port: 3307,
-    database: 'mujeres'
-=======
     host: "localhost",
-    user: "senaSoft",
+    user: "mujeresDigitales",
     password: "mujeres",
     database: "mujeres",
-    port: "3307"
->>>>>>> 4ff7ab75d7eb6a21558707ddfc2de5b6fe241876
+    port: "3306"
 }));
 
 app.use(session({
