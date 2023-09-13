@@ -1,7 +1,8 @@
-const express = require('express');
+const express = require('express');// requerimos express
 const LoginController = require('../controllers/LoginController');
+const CRUDController = require('../controllers/CRUD')
 
-const router = express.Router();
+const router = express.Router();// invocamos a la funcion router de express
 
 router.get('/login', LoginController.login);
 router.post('/loginusu', LoginController.auth);
@@ -10,4 +11,7 @@ router.post('/registerUsuario', LoginController.storeUser);
 router.get('/iniciosesion', LoginController.inicioS);
 router.get('/logout', LoginController.logout);
 
+
+// CRUD FUNCIONES 
+router.get('/customers', CRUDController.listado)
 module.exports = router;

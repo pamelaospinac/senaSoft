@@ -23,7 +23,7 @@ function auth(req, res) {  //funcion que nos va permitir iniciar sesion
 
                 usuariodatos.forEach(element => {
                     bcrypt.compare(datos.password, element.password, (err, esIgual) => {
-                        console.log(element.password)
+                        console.log(element.password)// comparamos que la contraseña escrita en el imput sea la misma del correo que se verifico anterior mente 
 
                         if (!esIgual) {
                             res.render('login/index', { error: 'Contraseña incorrecta' });
@@ -77,7 +77,7 @@ function storeUser(req, res) {
 
 
                 try {
-                    bcrypt.hash(data.password, 12).then(hash =>{
+                    bcrypt.hash(data.password, 12).then(hash =>{ //encryptamos la contraseña con elmetodo bcrypt
                        data.password = hash;
                     req.getConnection((err, confi) => { //getConnection estamos buscando la conexion con la BD establecida en app.js  
                         confi.query('INSERT INTO digitales SET ?', [data]);  // si no existe se lleva a cabo la respectiva funcion de registrar y guardar los datos
