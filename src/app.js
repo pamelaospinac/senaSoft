@@ -62,13 +62,9 @@ app.use(myconnection(mysql, {
 app.use('/', loginRoutes);//creando una ruta principal y si luego hay mas que utilice las de loginRoutes
 
 
-app.get('/', (req, res) => {
-    if(req.session.loggedin == true){
-        res.render('home', { nombre:req.session.nombre });
-    } else {
-        res.redirect('/login');
-    }
-});
+app.get('/', (req, res) => 
+    res.render('home')
+);
 
 
 //STATICS FILES/ carpeta de estaticas

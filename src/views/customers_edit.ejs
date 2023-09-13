@@ -18,19 +18,19 @@
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-title text-center">Editar usuario</h1>
-                        <form action="/editarUsuario" method="POST">
+                        <form action="/editarUsuario/<%= data.id%>" method="POST">
                             <div class="mb-3">
                                 <label for="Nombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="Nombre" name="Nombre"
-                                    value="<%= data[0].email%>" required>
+                                    value="<%= data.nombre%>" required>
                             </div>
                             <div class="mb-3">
                                 <label for="Email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="Email" name="Email"  value="<%= data[0].email%>" required>
+                                <input type="email" class="form-control" id="Email" name="Email"  value="<%= data.email%>" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">contraseña</label>
-                                <input type="password" class="form-control" id="password" name="password"  value="<%= data[0].email%>" required>
+                                <input type="password" class="form-control" id="password" name="password"  value="<%= data.email%>" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Editar</button>
                         </form>

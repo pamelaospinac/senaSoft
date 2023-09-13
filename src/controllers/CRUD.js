@@ -32,11 +32,11 @@ exports.customersEdit = (req, res) => {
 
 exports.editarUsuario = (req, res) => {
     req.getConnection((err, confi) => {
-        const { id } = req.params
+        const { id } = req.params;
         //ACTUALIZANDO DATOS A LA BD 
-        confi.query('SELECT * FROM  digitales WHERE id = ?', [id], ((error, results) => {
+        confi.query('SELECT * FROM  digitales WHERE id = ?', [id], ((error, customers) => {
            res.render('customers_edit', {
-            data:customers
+            data:customers[0]
            })
 
         })
@@ -46,3 +46,15 @@ exports.editarUsuario = (req, res) => {
 
 
 
+exports.uptade = (req, res)=>{
+    const { id } = req.params;
+    const nuevosDatos = req. body 
+
+    req.getConnection((err, confi)=>
+    {
+        confi.query('UPDATE digitales SET ? WHERE id= ?', [nuevosDatos, id], (err, filas)=>{
+            res.redirect('/customers');
+        })
+    })
+
+}
