@@ -52,10 +52,10 @@ app.use(morgan('dev'));// manera de ver las peticiones a la pagina y sus estados
 //conectabdo a la base de datos
 app.use(myconnection(mysql, {
     host: "localhost",
-    user: "mujeresDigitales",
+    user: "senaSoft",
     password: "mujeres",
     database: "mujeres",
-    port: "3306"
+    port: "3307"
 }));
 
 //RUTAS

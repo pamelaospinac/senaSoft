@@ -13,5 +13,8 @@ router.get('/logout', LoginController.logout);
 
 
 // CRUD FUNCIONES 
-router.get('/customers', CRUDController.listado)
+router.get('/customers', CRUDController.listado);
+router.get('/delete/:id', CRUDController.delete);
+router.get('/customersEdit', CRUDController.customersEdit);
+router.post('/editarUsuario/:id', CRUDController.editarUsuario);
 module.exports = router;
