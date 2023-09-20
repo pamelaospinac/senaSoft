@@ -117,7 +117,18 @@ function crearPartida(req, res){
 }
 
 function iniciarPartida(req, res){
-    res.render('inicio_partida')
+    req.getConnection((err, confi) => {
+        confi.query('SELECT * FROM jugadores', (err, datos) => {
+            if (err) {
+                res.json(err);
+            }
+            res.render('inicio_partida', {
+
+                data: datos
+            })
+        })
+
+    })
 }
 
 
