@@ -7,7 +7,7 @@
     <!-- Agrega los enlaces a los archivos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body >
+<body onload="comenzarTiempo()">
     <%- include('./layouts/main')%>
 <form action="#" method="post">
     <div class="form-group">
@@ -16,8 +16,8 @@
             <h1><span id="tiempoAgotado"> </span> </h1>
 
 
-            <label class="form-label mt-4" for="nombre-jugador">Ingrese su nombre</label>
-            <input class="form-control" id="nombre-jugador" type="text" placeholder="Ingrese nombre" readonly="">
+            <label class="form-label mt-4" for="readOnlyInput">Ingrese su nombre</label>
+            <input class="form-control" id="readOnlyInput" type="text" placeholder="Ingrese nombre" readonly="">
         </fieldset>
     </div>
 
@@ -30,29 +30,5 @@
     <!-- Si necesitas jQuery, descomenta la siguiente línea -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
-<script>
-    
-let tiempoTerminado;
-let intervaloDeTiempo;
-
-function comenzarTiempo(){
-    tiempoTerminado = setTimeout(tiempoCumplido, 1000 *30);
-    intervaloDeTiempo = setInterval(ticTac, 1000)
-
-    let tiempo= document.getElementById("conteoregresivo").textContent = 30;
-}
-function ticTac(){
-    let tiempo= document.getElementById("conteoregresivo").textContent;
-
-    document.getElementById("conteoregresivo").textContent = tiempo -1;
- }
-
- function tiempoCumplido(){
-    clearInterval(intervaloDeTiempo);
-    document.getElementById("conteoregresivo").textContent =0;
-   const tiempoAgotado = document.getElementById('tiempoAgotado')
-   tiempoAgotado.innerHTML= 'PERDISTE AGOTADO'
- }
-</script>
 </body>
 </html>

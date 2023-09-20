@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,48 +8,63 @@
     <!-- Agrega los enlaces a los archivos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body onload="comenzarTiempo()">
     <%- include('./layouts/main')%>
-<form action="#" method="post">
-    <div class="form-group">
-        <fieldset>
-            <h1>Tiempo partida: <span id="conteoregresivo"> </span> </h1>
+        <form action="#" method="post">
+            <div class="form-group">
+                <fieldset>
+                    <h1>Tiempo partida: <span id="conteoregresivo"> </span> </h1>
 
-<<<<<<< HEAD
 
-            <h2 class="form-label mt-4" for="readOnlyInput" id="textNombre">Pepito</h2>
-=======
-            <img src="assets/img/user.png" alt="" class="img-thumbnail">
->>>>>>> b3e77a1d51dfe76bc955f79f38af31cf68313922
-        </fieldset>
-    </div>
-</form>
-    <!-- Agrega los enlaces a los archivos de Bootstrap y jQuery (si es necesario) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
-    <!-- Si necesitas jQuery, descomenta la siguiente línea -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-    <script>
-        let tiempoTerminado;
-let intervaloDeTiempo;
+                    <%if (data) {%>
+                        <% for (var i=0; i < data.length; i++){%>
 
-function comenzarTiempo(){
-    tiempoTerminado = setTimeout(tiempoCumplido, 1000 *30);
-    intervaloDeTiempo = setInterval(ticTac, 1000)
+                            <h2 class="form-label mt-4" for="readOnlyInput">Jugador: <%= data[i].nombre%> <span
+                                        id="textNombre"> </span></h2>
+                              
+                            <% }%>
 
-    let tiempo= document.getElementById("conteoregresivo").textContent = 30;
-}
-function ticTac(){
-    let tiempo= document.getElementById("conteoregresivo").textContent;
+                                <% }%>
 
-    document.getElementById("conteoregresivo").textContent = tiempo -1;
- }
+                                    <img src="assets/img/user.png" alt="" class="img-thumbnail">
 
- function tiempoCumplido(){
-    clearInterval(intervaloDeTiempo);
-    document.getElementById("conteoregresivo").textContent =0;
-    alert('GAME  OVER')
- }
-   
-    </script>
+                </fieldset>
+            </div>
+        </form>
+        <!-- Agrega los enlaces a los archivos de Bootstrap y jQuery (si es necesario) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+        <!-- Si necesitas jQuery, descomenta la siguiente línea -->
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+        <script>
+            let tiempoTerminado;
+            let intervaloDeTiempo;
+
+            function comenzarTiempo() {
+
+
+                tiempoTerminado = setTimeout(tiempoCumplido, 1000 * 30);
+                intervaloDeTiempo = setInterval(ticTac, 1000)
+                let tiempo = document.getElementById("conteoregresivo").textContent = 30;
+            }
+
+
+
+
+
+            function ticTac() {
+                let tiempo = document.getElementById("conteoregresivo").textContent;
+
+                document.getElementById("conteoregresivo").textContent = tiempo - 1;
+            }
+
+            function tiempoCumplido() {
+                clearInterval(intervaloDeTiempo);
+                document.getElementById("conteoregresivo").textContent = 0;
+                alert('GAME  OVER')
+            }
+
+        </script>
 </body>
+
 </html>
