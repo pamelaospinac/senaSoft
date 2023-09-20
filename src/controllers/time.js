@@ -1,3 +1,4 @@
+
 let tiempoTerminado;
 let intervaloDeTiempo;
 
@@ -16,5 +17,6 @@ function ticTac(){
  function tiempoCumplido(){
     clearInterval(intervaloDeTiempo);
     document.getElementById("conteoregresivo").textContent =0;
-    alert('GAME  OVER')
+   const tiempoAgotado = document.getElementById('tiempoAgotado')
+   tiempoAgotado.innerHTML= 'PERDISTE AGOTADO'
  }
