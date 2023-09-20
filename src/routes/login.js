@@ -11,7 +11,7 @@ router.post('/registerUsuario', LoginController.storeUser);
 router.get('/iniciosesion', LoginController.inicioS);
 router.get('/logout', LoginController.logout);
 router.get('/crearPartida', LoginController.crearPartida);
-router.post('/iniciarPartida', LoginController.iniciarPartida);
+router.get('/iniciarPartida', LoginController.iniciarPartida);
 
 // CRUD FUNCIONES 
 router.get('/customers', CRUDController.listado);
