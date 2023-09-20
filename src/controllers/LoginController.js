@@ -113,7 +113,7 @@ function logout(req, res){
 }
 
 function crearPartida(req, res){
-    res.render('crearPartida')
+    res.render('crear_partida')
 }
 
 
