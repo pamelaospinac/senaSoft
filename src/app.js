@@ -17,7 +17,7 @@ const loginRoutes = require('./routes/login');// importamos el documento de las 
 //configuraciones 
 
 const app = express();//inicializamos express
-app.set('port', 4001);//elegimos el puerto para que funcione el servidor  y le decimos que utilice el 4001 o que utilice uno predeterminado del servidor 
+app.set('port', 4000);//elegimos el puerto para que funcione el servidor  y le decimos que utilice el 4001 o que utilice uno predeterminado del servidor 
 
 app.set('views', __dirname + '/views');//configuramos el motor de platillas que en este caso es hbs o seria ejs, le indicamos que esta en la carpeta views
 
