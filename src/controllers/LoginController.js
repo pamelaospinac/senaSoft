@@ -112,6 +112,10 @@ function logout(req, res){
     res.redirect('/login');
 }
 
+function crearPartida(req, res){
+    res.render('crearPartida')
+}
+
 
 
 
@@ -122,4 +126,5 @@ module.exports = {
     auth,
     inicioS,
     logout,
+    crearPartida,
 }

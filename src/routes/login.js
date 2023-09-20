@@ -10,6 +10,7 @@ router.get('/register', LoginController.register);
 router.post('/registerUsuario', LoginController.storeUser);
 router.get('/iniciosesion', LoginController.inicioS);
 router.get('/logout', LoginController.logout);
+router.post('/crearPartida', LoginController.crearPartida);
 
 
 // CRUD FUNCIONES 
