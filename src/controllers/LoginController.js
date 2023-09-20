@@ -116,6 +116,10 @@ function crearPartida(req, res){
     res.render('crear_partida')
 }
 
+function iniciarPartida(req, res){
+    res.render('inicio_partida')
+}
+
 
 
 
@@ -127,4 +131,5 @@ module.exports = {
     inicioS,
     logout,
     crearPartida,
+    iniciarPartida,
 }
